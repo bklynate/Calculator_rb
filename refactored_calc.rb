@@ -21,38 +21,26 @@ prompt "Calculator Initalized: 100%"
 
 begin 
 prompt "Press: 1) Addition  2)Substraction  3)Multiply  4) Division" 
-choice = gets.chomp 
+choice = gets.chomp
+
+prompt "1st input: "
+num1 = user_input
+prompt "2nd input: "
+num2 = user_input 
   
   if choice == "1"
-    prompt "1st input: "
-    num1 = user_input
-    prompt "2nd input: "
-    num2 = user_input
     result = num1.to_i + num2.to_i
     prompt "The result is #{result}"
-  
 
   elsif choice == "2"
-    prompt "1st input: "
-    num1 = user_input
-    prompt "2nd input: "
-    num2 = user_input
     result = num1.to_i - num2.to_i
     prompt "The result is #{result}"
 
   elsif choice == "3"
-    prompt "1st input: "
-    num1 = user_input
-    prompt "2nd input: "
-    num2 = user_input
     result = num1.to_i * num2.to_i
     prompt "The result is #{result}"
 
   elsif choice == "4"
-    prompt "1st input: "
-    num1 = user_input
-    prompt "2nd input: "
-    num2 = user_input
     result = num1.to_i / num2.to_f
     prompt "The result is #{result}"
   
