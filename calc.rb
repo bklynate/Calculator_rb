@@ -1,49 +1,65 @@
 # Calc.rb - A Simple Calculator Script
 
-def pyry(words)
+def num_check(num)
+  num.to_i.to_s == num || num.to_f.to_s == num
+end
+
+def prompt(words)
   puts ">>> #{words}"
 end
 
+def user_input
+  begin
+    num = gets.chomp
+    puts "That's not a valid number, please try again" unless num_check(num)
+  end until num_check(num)
+  return num
+end
+
+prompt "Calculator Initalized: 100%"
+
 begin
-  pyry "Calculator Initalized: 100%"
-  pyry "Press: 1) Addition  2)Substraction  3)Multiply  4) Division" 
+  prompt "Press: 1) Addition  2)Substraction  3)Multiply  4) Division" 
   choice = gets.chomp
   if choice == "1"
-    pyry "1st input: "
-    num1 = gets.chomp
-    pyry "2nd input: "
-    num2 = gets.chomp
+    prompt "1st input: "
+    num1 = user_input
+    prompt "2nd input: "
+    num2 = user_input
     result = num1.to_i + num2.to_i
-    pyry "The result is #{result}"
-    pyry "Again[Y/N]?"
-    decision = gets.chomp
+    prompt "The result is #{result}"
+    prompt "Again[y/n]?"
+    decision = gets.chomp.downcase
   elsif choice == "2"
-    pyry "1st input: "
-    num1 = gets.chomp
-    pyry "2nd input: "
-    num2 = gets.chomp
+    prompt "1st input: "
+    num1 = user_input
+    prompt "2nd input: "
+    num2 = user_input
     result = num1.to_i - num2.to_i
-    pyry "The result is #{result}"
-    pyry "Again[Y/N]?"
-    decision = gets.chomp
+    prompt "The result is #{result}"
+    prompt "Again[y/n]?"
+    decision = gets.chomp.downcase
   elsif choice == "3"
-    pyry "1st input: "
-    num1 = gets.chomp
-    pyry "2nd input: "
-    num2 = gets.chomp
+    prompt "1st input: "
+    num1 = user_input
+    prompt "2nd input: "
+    num2 = user_input
     result = num1.to_i * num2.to_i
-    pyry "The result is #{result}"
-    pyry "Again[Y/N]?"
-    decision = gets.chomp
+    prompt "The result is #{result}"
+    prompt "Again[y/n]?"
+    decision = gets.chomp.downcase
   elsif choice == "4"
-    pyry "1st input: "
-    num1 = gets.chomp
-    pyry "2nd input: "
-    num2 = gets.chomp
+    prompt "1st input: "
+    num1 = user_input
+    prompt "2nd input: "
+    num2 = user_input
     result = num1.to_i / num2.to_f
-    pyry "The result is #{result}"
-    pyry "Again[Y/N]?"
-    decision = gets.chomp
+    prompt "The result is #{result}"
+    prompt "Again[y/n]?"
+    decision = gets.chomp.downcase
+  else
+    prompt "That is not a valid choice"
+    prompt "Choose again?[y/n] "
+    decision = gets.chomp.downcase
   end
-end while decision == "Y"
-
+end while decision == "y"
