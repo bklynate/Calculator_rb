@@ -1,7 +1,7 @@
 # Calc.rb - A Simple Calculator Script
 
-def num_check(num)
-  num.to_i.to_s == num || num.to_f.to_s == num
+def number_check(number)
+  number.to_i.to_s == number || number.to_f.to_s == num
 end
 
 def prompt(words)
@@ -10,10 +10,10 @@ end
 
 def user_input
   begin
-    num = gets.chomp
-    prompt "That's not a valid number, please try again" unless num_check(num)
-  end until num_check(num)
-  return num
+    number = gets.chomp
+    prompt "That's not a valid number, please try again" unless number_check(number)
+  end until number_check(number)
+  return number
 end
 
 def valid_choice
@@ -48,7 +48,7 @@ begin
   elsif choice == "4"
     result = num1.to_i / num2.to_f
   end
-  
+
   prompt "The result is #{result}" if result
   prompt "Try Again? [y/n]"
   decision = gets.chomp.downcase
